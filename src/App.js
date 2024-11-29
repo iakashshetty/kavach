@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/react";
+
 import React, { useState, useEffect } from "react";
 import {
   CloseImage,
@@ -40,7 +42,7 @@ function WebsiteSafetyChecker() {
   const darkTextColor = "white";
 
   useEffect(() => {
-    // searchText değiştiğinde CloseIcon bileşenini gösterip gizle
+    // Show/hide CloseIcon component when searchText changes
   }, [inputText]);
 
   const parseHostname = (url) => {
@@ -204,6 +206,7 @@ function WebsiteSafetyChecker() {
           onClick={() => setIsDarkMode(!isDarkMode)}
         />
       </DesktopContainer>
+      <Analytics /> {/* Vercel Analytics Component */}
     </ThemeProvider>
   );
 }
